@@ -73,10 +73,6 @@ class HomePageTest(TestCase):
 	
 	def test_check_less_five_item(self):
 		Item.objects.create(text='itemy 1')
-		#Item.objects.create(text='itemy 2')
-		#Item.objects.create(text='itemy 3')
-		#Item.objects.create(text='itemy 4')
-		#Item.objects.create(text='itemy 5')
 
 		request = HttpRequest()
 		response = home_page(request)
@@ -114,12 +110,3 @@ class ItemModelTest(TestCase):
 		second_saved_item = saved_items[1]
 		self.assertEqual(first_saved_item.text, 'The first (ever) list item')
 		self.assertEqual(second_saved_item.text, 'Item the second')
-
-	#def test_check_zero_item(self):
-	#	self.assertEqual(Item.objects.count(),0)
-		
-	#def test_check_less_five_items(self):
-	#	self.assertLess(Item.objects.count(), 5)
-
-	#def test_check_greater_equal_five_items(self):
-	#	self.assertGreaterEqual(Item.objects.count(), 5)
