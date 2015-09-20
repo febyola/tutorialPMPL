@@ -8,6 +8,7 @@ class NewVisitorTest(unittest.TestCase):
 		self.browser = webdriver.Firefox()
 		self.browser.implicitly_wait(3)
 
+<<<<<<< HEAD
 	#def tearDown(self):
 	#	self.browser.quit()
 	
@@ -41,6 +42,14 @@ class NewVisitorTest(unittest.TestCase):
 
 		self.check_for_row_in_list_table('1: Buy peacock feathers')
 		self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
+=======
+	def tearDown(self):
+		self.browser.quit()
+
+	def test_can_start_a_list_and_retrieve_it_later(self):
+		self.browser.get('http://localhost')
+		self.assertIn('To-Do', self.browser.title)
+>>>>>>> f2d9a28a03a44f2d9c89767927e4a63cae184675
 		self.fail('Finish the test!')
 
 if __name__ == '__main__':
