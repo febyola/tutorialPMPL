@@ -19,7 +19,9 @@ class NewVisitorTest(LiveServerTestCase):
 	
 
 	def test_can_start_a_list_and_retrieve_it_later(self):
-		self.browser.get('http://localhost:8081')
+#		self.browser.get('http://localhost:8081')
+
+		self.browser.get(self.live_server_url)
 
 		self.assertIn('To-Do', self.browser.title)
 		header_text = self.browser.find_element_by_tag_name('h1').text

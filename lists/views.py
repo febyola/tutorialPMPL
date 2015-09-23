@@ -15,16 +15,16 @@ def new_list(request):
 
 def view_list(request, list_id):
 	list_ = List.objects.get(id=list_id)	
-#	items = Item.objects.filter(list=list_)
+#	items = Item.objects.filter(id=list_id)
 
-	#item_label = ''
-	#if Item.objects.count() == 0:
-	#	item_label = 'yey, waktunya berlibur'
-	#elif Item.objects.count() < 5:
-	#	item_label = 'sibuk tapi santai'
-	#elif Item.objects.count() >= 5:
-	#	item_label = 'oh tidak'
-	return render(request, 'list.html', {'list': list_})
+	item_label = ''
+	if Item.objects.filter(list_id = list_id).count() == 0:
+		item_label = 'yey, waktunya berlibur'
+	elif Item.objects.filter(list_id = list_id).count() < 5:
+		item_label = 'sibuk tapi santai'
+	elif Item.objects.filter(list_id = list_id).count() >= 5:
+		item_label = 'oh tidak'
+	return render(request, 'list.html', {'list': list_, 'item_label':item_label})
 
 def home_page(request):
 #	if request.method == 'POST':
@@ -33,11 +33,11 @@ def home_page(request):
 	
 #	items = Item.objects.all()
 	
-#	item_label = ''
-#	if Item.objects.count() == 0:
-#		item_label = 'yey, waktunya berlibur'
-#	elif Item.objects.count() < 5:
-#		item_label = 'sibuk tapi santai'
-#	elif Item.objects.count() >= 5:
-#		item_label = 'oh tidak'
-	return render(request, 'home.html')
+	item_label = ''
+	if Item.objects.count() == 0:
+		item_label = 'yey, waktunya berlibur'
+	elif Item.objects.count() < 5:
+		item_label = 'sibuk tapi santai'
+	elif Item.objects.count() >= 5:
+		item_label = 'oh tidak'
+	return render(request, 'home.html', {'item_label': item_label})
