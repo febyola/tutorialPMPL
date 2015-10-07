@@ -34,10 +34,10 @@ def home_page(request):
 #	items = Item.objects.all()
 	
 	item_label = ''
-	if Item.objects.count() == 0:
-		item_label = 'yey, waktunya berlibur'
-	elif Item.objects.count() < 5:
-		item_label = 'sibuk tapi santai'
-	elif Item.objects.count() >= 5:
-		item_label = 'oh tidak'
+#	if Item.objects.count() == 0:
+	item_label = 'yey, waktunya berlibur'
+#	elif Item.objects.count() < 5:
+#		item_label = 'sibuk tapi santai'
+#	elif Item.objects.count() >= 5:
+#		item_label = 'oh tidak'
 	return render(request, 'home.html', {'item_label': item_label})
